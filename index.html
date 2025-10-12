@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Muthini Mawia - ICT Professional</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- <link rel="stylesheet" href="includes/styles.css"> -->
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #00b0ff;
+            --accent-color: #ff4081;
+            --light-color: #f5f5f5;
+            --dark-color: #121212;
+            --success-color: #00c853;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            color: #333;
+        }
+        
+        /* Hero Section with Animated Background */
+        .hero-section {
+            background: linear-gradient(-45deg, #1a237e, #283593, #303f9f, #3949ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: white;
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 0 30px rgba(0, 176, 255, 0.5);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 176, 255, 0.8);
+        }
+        
+        .typing-text {
+            border-right: 2px solid white;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white }
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+        
+        .section-title:hover::after {
+            width: 120px;
+        }
+        
+        .skill-card {
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            border-left: 5px solid var(--secondary-color);
+            height: 100%;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-card {
+            transition: all 0.4s ease;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            background: white;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(5deg);
+            color: var(--accent-color);
+        }
+        
+        .contact-info {
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+        
+        .contact-info:hover {
+            transform: translateX(10px);
+            background-color: rgba(0, 176, 255, 0.1);
+        }
+        
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info:hover i {
+            color: var(--accent-color);
+        }
+        
+        .navbar {
+            background-color: rgba(26, 35, 126, 0.95) !important;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar.scrolled {
+            padding: 0.7rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), #283593);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 12px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            line-height: 50px;
+            text-align: center;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .project-card {
+            transition: all 0.4s ease;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+            background: white;
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+        
+        .project-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            transition: all 0.4s ease;
+        }
+        
+        .project-card:hover .project-icon {
+            transform: scale(1.2);
+            color: var(--accent-color);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .progress {
+            height: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 5px;
+        }
+        
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .stats-label {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .testimonial-card {
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 176, 255, 0.4);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), #0091ea);
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 176, 255, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 176, 255, 0.6);
+            background: linear-gradient(135deg, #0091ea, var(--secondary-color));
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .floating-shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+        
+       .skill-badge {
+        display: inline-block;
+        background: white;
+        color: var(--primary-color);
+        padding: 6px 16px;
+        border-radius: 20px;
+        margin: 4px;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: 1.5px solid var(--secondary-color);
+        font-weight: 500;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .skill-badge:hover {
+        background: var(--secondary-color);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 176, 255, 0.3);
+    }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-laptop-code me-2"></i>Jonathan Muthini
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="floating-shapes">
+            <div class="floating-shape" style="width: 80px; height: 80px; top: 10%; left: 5%;"></div>
+            <div class="floating-shape" style="width: 60px; height: 60px; top: 70%; left: 80%;"></div>
+            <div class="floating-shape" style="width: 100px; height: 100px; top: 40%; left: 90%;"></div>
+            <div class="floating-shape" style="width: 50px; height: 50px; top: 20%; left: 70%;"></div>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="passport.jpg" alt="Jonathan Muthini Mawia" class="profile-img animate__animated animate__fadeInLeft">
+                </div>
+                <div class="col-md-8 hero-content">
+                    <h1 class="display-4 fw-bold animate__animated animate__fadeInRight">Jonathan Muthini Mawia</h1>
+                    <p class="lead typing-text animate__animated animate__fadeInUp">ICT Tutor | Technician | Web Developer</p>
+                    <p class="animate__animated animate__fadeInUp animate__delay-1s">Bridging the gap between technology and education with practical solutions and expert guidance.</p>
+                    <!-- In the hero section where your buttons are -->
+<div class="mt-4 animate__animated animate__fadeInUp animate__delay-2s">
+    <a href="#contact" class="btn btn-primary btn-lg me-3">Get In Touch</a>
+    <a href="#portfolio" class="btn btn-outline-light btn-lg me-3">View My Work</a>
+    <a href="documents/Jonathan_Muthini_CV.pdf" class="btn btn-outline-light btn-lg" download>
+        <i class="fas fa-download me-2"></i>Download CV
+    </a>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">About Me</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="lead">I am a passionate ICT professional with expertise spanning technical support, education, and web development. My unique combination of skills allows me to not only solve complex technical problems but also effectively communicate solutions to clients and students.</p>
+                    <p>With years of experience in both the practical and educational aspects of information technology, I bring a comprehensive approach to every project I undertake.</p>
+                    
+                    <!-- Stats Counter -->
+                    <div class="row mt-5">
+                        <div class="col-6 text-center">
+                            <div class="stats-counter" data-count="8">0</div>
+                            <div class="stats-label">Projects Completed</div>
+                        </div>
+                        <div class="col-6 text-center">
+                            <div class="stats-counter" data-count="5">0</div>
+                            <div class="stats-label">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> ICT Tutoring</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Technical Support</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Hardware Repair</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Web Development</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Network Configuration</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> System Administration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Skills Progress Bars -->
+                    <div class="mt-4">
+                        <h5 class="mb-3">Technical Proficiency</h5>
+                        <div class="skill-item mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Hardware Troubleshooting</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Web Development</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Network Configuration</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-gradient">
+        <div class="container">
+            <h2 class="section-title text-center">My Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card card p-4 text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h4>ICT Tutoring</h4>
+                        <p>Personalized ICT lessons tailored to your skill level, covering everything from basic computer literacy to advanced technical concepts.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">Computer Basics</span>
+                            <span class="skill-badge">Programming</span>
+                            <span class="skill-badge">Networking</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card card p-4 text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>ICT Technical Support</h4>
+                        <p>Comprehensive hardware and software troubleshooting, repair, and maintenance services for individuals and businesses.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">Hardware Repair</span>
+                            <span class="skill-badge">Software Installation</span>
+                            <span class="skill-badge">System Maintenance</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card card p-4 text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Web Development</h4>
+                        <p>Custom website design and development using modern technologies to create responsive, user-friendly digital experiences.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">Frontend</span>
+                            <span class="skill-badge">Backend</span>
+                            <span class="skill-badge">Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Technical Skills</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="skill-card card p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-desktop fa-2x me-3 text-primary"></i>
+                            <h5 class="mb-0">Hardware & Software</h5>
+                        </div>
+                        <p>Diagnosing, repairing, and maintaining desktops, laptops, peripherals, and operating systems.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">Hardware Troubleshooting</span>
+                            <span class="skill-badge">OS Installation</span>
+                            <span class="skill-badge">Driver Updates</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill-card card p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-network-wired fa-2x me-3 text-primary"></i>
+                            <h5 class="mb-0">Network Support</h5>
+                        </div>
+                        <p>Configuring and troubleshooting wired and wireless networks, TCP/IP, DNS, DHCP, and router administration.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">Network Setup</span>
+                            <span class="skill-badge">Security</span>
+                            <span class="skill-badge">Troubleshooting</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill-card card p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-server fa-2x me-3 text-primary"></i>
+                            <h5 class="mb-0">System Administration</h5>
+                        </div>
+                        <p>User account management, software installation, system imaging/deployment, and remote support.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">User Management</span>
+                            <span class="skill-badge">Software Deployment</span>
+                            <span class="skill-badge">Remote Support</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill-card card p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-laptop-code fa-2x me-3 text-primary"></i>
+                            <h5 class="mb-0">Web Development</h5>
+                        </div>
+                        <p>HTML5, CSS3, JavaScript, Bootstrap, and responsive design principles for modern web applications.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">Frontend Development</span>
+                            <span class="skill-badge">Responsive Design</span>
+                            <span class="skill-badge">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding bg-gradient">
+        <div class="container">
+            <h2 class="section-title text-center">My Portfolio</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="project-card card">
+                        <div class="project-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="card-title">Educational Platform</h4>
+                        <p class="card-text">A responsive e-learning platform developed for ICT students with interactive lessons and progress tracking.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">HTML/CSS</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">Bootstrap</span>
+                        </div>
+                        <a href="#" class="btn btn-primary mt-3">View Project</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card card">
+                        <div class="project-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="card-title">IT Support Portal</h4>
+                        <p class="card-text">A sacco Website.</p>
+                        <div class="mt-3">
+                            <span class="skill-badge">PHP</span>
+                            <span class="skill-badge">MySQL</span>
+                            <span class="skill-badge">JavaScript</span>
+                        </div>
+                        <a href="https://fasttechtechnologies.github.io/KyeniKitu-Group/" class="btn btn-primary mt-3">View Project</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card card">
+                        <div class="project-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h4 class="card-title">Business Website</h4>
+                        <p class="card-text">A corporate website with integrated contact management system and responsive design for all devices.</p>
+                        <div class="mt-3">
+                            <!-- <span class="skill-badge">WordPress</span> -->
+                            <span class="skill-badge">CSS</span>
+                            <span class="skill-badge">PHP</span>
+                        </div>
+                        <a href="#" class="btn btn-primary mt-3">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Get In Touch</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <strong>Email:</strong> jonathanmuthini2@gmail.com
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <strong>Phone:</strong> 0757177738
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <strong>Location:</strong> Nairobi, Kenya
+                    </div>
+                    
+                    <!-- Testimonials -->
+                    <div class="mt-5">
+                        <h5>What Clients Say</h5>
+                        <div class="testimonial-card mt-3">
+                            <p>"Jonathan's technical expertise and teaching ability helped our team become more proficient with our systems."</p>
+                            <strong>- Sarah K., Business Owner</strong>
+                        </div>
+                        <div class="testimonial-card mt-3">
+                            <p>"He fixed my computer issues quickly and explained everything in terms I could understand."</p>
+                            <strong>- Michael T., Client</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <form id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                                    <label for="message">Your Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="social-links mb-4">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+            <p>&copy; 2023 Jonathan Muthini Mawia. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Back to top functionality
+        document.querySelector('.back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animate stats counter
+        function animateCounter() {
+            const counters = document.querySelectorAll('.stats-counter');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounter, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+        
+        // Initialize counter animation when in viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        
+        document.querySelectorAll('.stats-counter').forEach(counter => {
+            observer.observe(counter);
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+        
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Add floating shapes dynamically
+        function createFloatingShapes() {
+            const shapesContainer = document.querySelector('.floating-shapes');
+            for (let i = 0; i < 8; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('floating-shape');
+                const size = Math.floor(Math.random() * 60) + 20;
+                const top = Math.floor(Math.random() * 90);
+                const left = Math.floor(Math.random() * 90);
+                const animationDuration = Math.floor(Math.random() * 20) + 10;
+                
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                shape.style.top = `${top}%`;
+                shape.style.left = `${left}%`;
+                shape.style.animationDuration = `${animationDuration}s`;
+                
+                shapesContainer.appendChild(shape);
+            }
+        }
+        
+        createFloatingShapes();
+    </script>
+</body>
+</html>
